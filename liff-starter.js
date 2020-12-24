@@ -118,11 +118,11 @@ function initializeApp() {
         document.getElementById('liffLoginButton').disabled = true;
         document.getElementById("is-login").classList.add('hidden');
         document.getElementById("is-not-login").classList.remove('hidden');
-        // liff.getProfile().then(function(profile) {
-        //     $('#user-login-fullname').text(profile.displayName);
-        // }).catch(function(error) {
-        //     window.alert('Error getting profile: ' + error);
-        // });
+        liff.getProfile().then(function(profile) {
+            $('#user-login-fullname').text(profile.displayName);
+        }).catch(function(error) {
+            window.alert('Error getting profile: ' + error);
+        });
     } else {
         document.getElementById("is-login").classList.remove('hidden');
         document.getElementById("is-not-login").classList.add('hidden');
@@ -168,14 +168,6 @@ function registerButtonHandlers() {
             liff.login();
         }
     });
-
-    // logout call only when external browse
-    // document.getElementById('liffLogoutButton').addEventListener('click', function() {
-    //     if (liff.isLoggedIn()) {
-    //         liff.logout();
-    //         window.location.reload();
-    //     }
-    // });
 
     // sendMessages call
     document.getElementById('sendMessageButton').addEventListener('click', function() {
