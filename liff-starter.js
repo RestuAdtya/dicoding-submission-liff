@@ -171,12 +171,12 @@ function registerButtonHandlers() {
     });
 
     // logout call only when external browse
-    document.getElementById('liffLogoutButton').addEventListener('click', function() {
-        if (liff.isLoggedIn()) {
-            liff.logout();
-            window.location.reload();
-        }
-    });
+    // document.getElementById('liffLogoutButton').addEventListener('click', function() {
+    //     if (liff.isLoggedIn()) {
+    //         liff.logout();
+    //         window.location.reload();
+    //     }
+    // });
 
     // sendMessages call
     document.getElementById('sendMessageButton').addEventListener('click', function() {
