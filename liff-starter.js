@@ -126,7 +126,7 @@ function initializeApp() {
     } else {
         document.getElementById("is-login").classList.remove('hidden');
         document.getElementById("is-not-login").classList.add('hidden');
-        document.getElementById('liffLogoutButton').disabled = true;
+        // document.getElementById('liffLogoutButton').disabled = true;
     }
 }
 
