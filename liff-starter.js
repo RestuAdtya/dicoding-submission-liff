@@ -4,7 +4,7 @@ let total_price = 0;
 
 window.onload = function() {
     const useNodeJS = false;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "1655449805-DBYZejA4";   // change the default LIFF value if you are not using a node server
+    const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
     
     // DO NOT CHANGE THIS
     let myLiffId = "";
