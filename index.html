@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>JajanSkuy!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .table>thead>tr>th {
+            padding: 60px;
+        }
+    </style>
+
+
+</head>
+
+<body onload="loadCatatan();">
+
+    <div class="col-md-12" ng-controller="listContactCtrl">
+        <div class="content" id="is-login">
+            <div class="tx-left-f">
+                <p>Hi <span id="user-login-fullname" class="tx-bold">JajanSkuy!</span> Yuk jajan, kakak bisa pilih menu di bawah</p>
+            </div>
+            <h1 class="tx-left-f">
+                Makanan
+            </h1>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="food tx-left-f">
+                        Makanan 1
+                        <span class="price-food tx-light">6.000</span>
+                    </div>
+                </div>
+                <div class="col-md-3 center-content-w-justify-right">
+                    <button onclick="min('makanan1')" class="btn btn-makanan1-min btn-secondary btn-xs visibility-hidden">-</button>
+                    <span id="makanan1-qty" class="tx-bold quantity-choice visibility-hidden">0</span>
+                    <button onclick="add('makanan1')" class="btn btn-makanan1-add btn-success btn-xs">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="food tx-left-f">
+                        Makanan 2
+                        <span class="price-food tx-light">6.000</span>
+                    </div>
+                </div>
+                <div class="col-md-3 center-content-w-justify-right">
+                    <button onclick="min('makanan2')" class="btn btn-makanan2-min btn-secondary btn-xs visibility-hidden">-</button>
+                    <span id="makanan2-qty" class="tx-bold quantity-choice visibility-hidden">0</span>
+                    <button onclick="add('makanan2')" class="btn btn-makanan2-add btn-success btn-xs">+</button>
+                </div>
+            </div>
+
+            <h1 class="tx-left-f">
+                Minuman
+            </h1>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="food tx-left-f">
+                        Minuman 1
+                        <span class="price-food tx-light">6.000</span>
+                    </div>
+                </div>
+                <div class="col-md-3 center-content-w-justify-right">
+                    <button onclick="min('minuman1')" class="btn btn-minuman1-min btn-secondary btn-xs visibility-hidden">-</button>
+                    <span id="minuman1-qty" class="tx-bold quantity-choice visibility-hidden">0</span>
+                    <button onclick="add('minuman1')" class="btn btn-minuman1-add btn-success btn-xs">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="food tx-left-f">
+                        Minuman 2
+                        <span class="price-food tx-light">6.000</span>
+                    </div>
+                </div>
+                <div class="col-md-3 center-content-w-justify-right">
+                    <button onclick="min('minuman2')" class="btn btn-minuman2-min btn-secondary btn-xs visibility-hidden">-</button>
+                    <span id="minuman2-qty" class="tx-bold quantity-choice visibility-hidden">0</span>
+                    <button onclick="add('minuman2')" class="btn btn-minuman2-add btn-success btn-xs">+</button>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="food tx-left-f">
+                        Ringkasan
+                        <span class="qty-total-food tx-light">Total : -</span>
+                        <span class="price-total-food tx-light">Harga : -</span>
+                    </div>
+                </div>
+                <div class="col-md-3 center-content-w-justify-right">
+                    <button id="order-now" class="btn btn-success btn-xs">Pesan Sekarang</button>
+                </div>
+            </div>
+
+
+            <div class="row pd-t-25-f">
+                <div class="tx-light tx-italic">
+                    <span id="openWindowButton">Buka di external browser</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="is-not-login">
+            <div class="tx-left-f">
+                <p class="tx-bold">Pengen jajan? Kuy order!</p>
+                <p>Eh tapi kak, sebelum order login dulu ya. Gampang kok, klik aja tombol di bawah ini.</p>
+            </div>
+            <div class="tx-left-f">
+                <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
+            </div>
+        </div>
+
+
+        <!--Konten LIFF v2-->
+
+        <!-- LIFF ID ERROR -->
+        <div id="liffIdErrorMessage" class="hidden pd-t-25-f">
+            <p>You have not assigned any value for LIFF ID.</p>
+            <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your
+                Heroku account follwing the below steps: </p>
+            <code id="code-block">
+                <ol>
+                    <li>Go to `Dashboard` in your Heroku account.</li>
+                    <li>Click on the app you just created.</li>
+                    <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
+                    <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
+                    <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+                </ol>
+            </code>
+            <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
+            <p>For more information about how to add your LIFF ID, see <a
+                    href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
+                    app</a>.</p>
+        </div>
+        <!-- LIFF INIT ERROR -->
+        <div id="liffInitErrorMessage" class="hidden">
+            <p>Something went wrong with LIFF initialization.</p>
+            <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.
+        </div>
+        <!-- NODE.JS LIFF ID ERROR -->
+        <div id="nodeLiffIdErrorMessage" class="hidden">
+            <p>Unable to receive the LIFF ID as an environment variable.</p>
+        </div>
+    </div>
+</body>
+<!-- Integrasi LIFF SDK dan konfigurasi aplikasi catatan sederhana -->
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script src="catatan-config.js"></script>
+<script src="liff-starter.js"></script>
+
+</html>

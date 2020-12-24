@@ -1,0 +1,153 @@
+html {
+    font-size: 11px;
+}
+
+table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+div {
+    max-width: 100%;
+    text-align: center;
+}
+
+th {
+    text-align: left;
+}
+
+img { 
+    max-width: 25%; 
+    height: auto; 
+}
+
+button {
+    margin: 4px;
+}
+
+#code-block {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#statusMessage {
+    position: relative;
+    top: 40px;
+}
+
+.textLeft {
+    text-align: left;
+}
+
+.buttonGroup {
+    position: relative;
+    top: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visibility-hidden {
+    visibility: hidden !important;
+}
+
+.tx-center {
+    text-align: center;
+}
+
+.tx-right {
+    text-align: right;
+}
+
+.tx-left {
+    text-align: left;
+}
+
+.tx-center-f {
+    text-align: center !important;
+}
+
+.tx-right-f {
+    text-align: right !important;
+}
+
+.tx-left-f {
+    text-align: left !important;
+}
+
+.center-content {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.center-content-w-justify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-content-w-justify-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.tx-bolder {
+    font-weight: 900;
+}
+
+.tx-bold {
+    font-weight: 700;
+}
+
+.tx-semibold {
+    font-weight: 600;
+}
+
+.tx-medium {
+    font-weight: 500;
+}
+
+.tx-normal {
+    font-weight: 400;
+}
+
+.tx-light {
+    font-weight: 300 !important;
+}
+
+.tx-thin {
+    font-weight: 200 !important;
+}
+
+.quantity-choice {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+.food {
+    font-weight: 500 !important; 
+}
+
+.food span::before {
+    content: "\A";
+    white-space: pre;
+}
+
+.tx-italic {
+    font-style: italic !important;
+}
+
+.pd-t-25-f {
+    padding-top: 25px !important;
+}
