@@ -31,44 +31,43 @@ window.onload = function() {
     }
 };
 
-// function min(id) {
-//     let current_val = $('#'+id+'-qty').text();
-//     if ($.inArray( id, [ "minuman1", "minuman2"] ) >= 0) {
-//         total_qty_drink -= 1;
-//     }else{
-//         total_qty_food -= 1;
-//     }
-//     total_price -= (1 * 6000);
-//     if (parseInt(current_val) - 1 == 0) {
-//         $('#'+id+'-qty').addClass('visibility-hidden');
-//         $('.btn-'+id+'-min').addClass('visibility-hidden');
-//     }
+function min(id) {
+    let current_val = $('#'+id+'-qty').text();
+    if ($.inArray( id, [ "minuman1", "minuman2"] ) >= 0) {
+        total_qty_drink -= 1;
+    }else{
+        total_qty_food -= 1;
+    }
+    total_price -= (1 * 6000);
+    if (parseInt(current_val) - 1 == 0) {
+        $('#'+id+'-qty').addClass('visibility-hidden');
+        $('.btn-'+id+'-min').addClass('visibility-hidden');
+    }
 
-//     $('#'+id+'-qty').text(parseInt(current_val) - 1);
+    $('#'+id+'-qty').text(parseInt(current_val) - 1);
 
 
-//     $('.qty-total-food').text("Total : "+total_qty_food+" makanan, "+total_qty_drink+" minuman");
-//     $('.price-total-food').text("Harga : "+total_price);
-// }
+    $('.qty-total-food').text("Total : "+total_qty_food+" makanan, "+total_qty_drink+" minuman");
+    $('.price-total-food').text("Harga : "+total_price);
+}
 
-// function add(id) {
-//     let current_val = $('#'+id+'-qty').text();
-//     if ($.inArray( id, [ "minuman1", "minuman2"] ) >= 0) {
-//         total_qty_drink += 1;
-//     }else{
-//         total_qty_food += 1;
-//     }
-//     total_price += (1 * 6000);
-//     // console.log(current_val);
-//     if (parseInt(current_val) + 1 > 0) {
-//         $('#'+id+'-qty').removeClass('visibility-hidden');
-//         $('.btn-'+id+'-min').removeClass('visibility-hidden');
-//     }
-//     $('#'+id+'-qty').text(parseInt(current_val) + 1);
+function add(id) {
+    let current_val = $('#'+id+'-qty').text();
+    if ($.inArray( id, [ "minuman1", "minuman2"] ) >= 0) {
+        total_qty_drink += 1;
+    }else{
+        total_qty_food += 1;
+    }
+    total_price += (1 * 6000);
+    if (parseInt(current_val) + 1 > 0) {
+        $('#'+id+'-qty').removeClass('visibility-hidden');
+        $('.btn-'+id+'-min').removeClass('visibility-hidden');
+    }
+    $('#'+id+'-qty').text(parseInt(current_val) + 1);
 
-//     $('.qty-total-food').text("Total : "+total_qty_food+" makanan, "+total_qty_drink+" minuman");
-//     $('.price-total-food').text("Harga : "+total_price);
-// }
+    $('.qty-total-food').text("Total : "+total_qty_food+" makanan, "+total_qty_drink+" minuman");
+    $('.price-total-food').text("Harga : "+total_price);
+}
 
 /**
 * Check if myLiffId is null. If null do not initiate liff.
