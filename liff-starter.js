@@ -140,7 +140,23 @@ function registerButtonHandlers() {
             } else {
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': "Hi *"+ $('#user-login-fullname').text() +"*, \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n** "+total_qty_food+ " Makanan*\n** "+total_qty_drink+" Minuman*\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
+                    'text': "",
+                    "contents": [
+                        {
+                          "type": "span",
+                          "text": "Hi "+ $('#user-login-fullname').text() +", \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n",
+                        },
+                        {
+                          "type": "span",
+                          "text": "* "+total_qty_food+ " Makanan \n*"+total_qty_drink+ " Minuman\n\n",
+                          "weight": "bold",
+                          "decoration": "none"
+                        },
+                        {
+                          "type": "span",
+                          "text": "Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
+                        }
+                      ],
                 }]).then(function() {
                     // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
                     if (!liff.isInClient()) {
