@@ -132,22 +132,26 @@ function registerButtonHandlers() {
     });
 
     document.getElementById('sendMessageButton').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': "Hi "+ $('#user-login-fullname').text() +", \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n<b>* "+total_qty_food+ " Makanan\n* "+total_qty_drink+" Minuman</b>\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
-            }]).then(function() {
-                // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
-                if (!liff.isInClient()) {
-                    sendAlertIfNotInClient();
-                } else {
-                    liff.closeWindow();
-                }
-            }).catch(function(error) {
-                window.alert('Error sending message: ' + error);
-            });
+        if(total_price == 0) {
+            window.alert('Anda belum memilih satupun pesanan, silahkan pilih setidaknya satu sebelum memesan');
+        }else{
+            if (!liff.isInClient()) {
+                sendAlertIfNotInClient();
+            } else {
+                liff.sendMessages([{
+                    'type': 'text',
+                    'text': "Hi *"+ $('#user-login-fullname').text() +"*, \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n** "+total_qty_food+ " Makanan*\n** "+total_qty_drink+" Minuman*\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
+                }]).then(function() {
+                    // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
+                    if (!liff.isInClient()) {
+                        sendAlertIfNotInClient();
+                    } else {
+                        liff.closeWindow();
+                    }
+                }).catch(function(error) {
+                    window.alert('Error sending message: ' + error);
+                });
+            }
         }
     });
 }
