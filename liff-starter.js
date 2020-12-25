@@ -140,7 +140,7 @@ function registerButtonHandlers() {
             } else {
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': "",
+                    'text': "hello",
                     "contents": [
                         {
                           "type": "span",
@@ -157,6 +157,7 @@ function registerButtonHandlers() {
                           "text": "Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
                         }
                       ],
+                    "wrap": true
                 }]).then(function() {
                     // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
                     if (!liff.isInClient()) {
