@@ -111,6 +111,13 @@ function initializeApp() {
         }).catch(function(error) {
             window.alert('Error getting profile: ' + error);
         });
+        if (!liff.isInClient()) {
+            $('.btn-external-link').addClass('hidden');
+            $('.btn-logout').removeClass('hidden');
+        } else {
+            $('.btn-external-link').removeClass('hidden');
+            $('.btn-logout').addClass('hidden');
+        }
     } else {
         document.getElementById("is-login").classList.add('hidden');
         document.getElementById("is-not-login").classList.remove('hidden');
@@ -123,6 +130,13 @@ function registerButtonHandlers() {
             url: 'https://dicoding-submission-wolfg.herokuapp.com/',
             external: true
         });
+    });
+
+    document.getElementById('liffLogoutButton').addEventListener('click', function() {
+        if (liff.isLoggedIn()) {
+            liff.logout();
+            window.location.reload();
+        }
     });
 
     document.getElementById('liffLoginButton').addEventListener('click', function() {
