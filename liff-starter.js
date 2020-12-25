@@ -137,12 +137,14 @@ function registerButtonHandlers() {
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': "Hi "+ $('#user-login-fullname').text() +", \n Terima kasih telah memesan makanan, berikut adalah review pesanananya: \n"
-            },{
-                'type': 'text',
-                'text': "Hi "+ $('#user-login-fullname').text() +", \n Terima kasih telah memesan makanan, berikut adalah review pesanananya: \n"
+                'text': "Hi "+ $('#user-login-fullname').text() +", \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n<b>* "+total_qty_food+ " Makanan\n* "+total_qty_drink+" Minuman</b>\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
             }]).then(function() {
                 // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
+                if (!liff.isInClient()) {
+                    sendAlertIfNotInClient();
+                } else {
+                    liff.closeWindow();
+                }
             }).catch(function(error) {
                 window.alert('Error sending message: ' + error);
             });
