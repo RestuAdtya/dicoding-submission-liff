@@ -3,14 +3,11 @@ let total_qty_drink = 0;
 let total_price = 0;
 
 window.onload = function() {
-    const useNodeJS = false;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "1655449805-DBYZejA4";   // change the default LIFF value if you are not using a node server
-    
-    // DO NOT CHANGE THIS
+    const useNodeJS = false;
+    const defaultLiffId = "1655449805-DBYZejA4";
+
     let myLiffId = "";
 
-    // if node is used, fetch the environment variable and pass it to the LIFF method
-    // otherwise, pass defaultLiffId
     if (useNodeJS) {
         fetch('/send-id')
             .then(function(reqResponse) {
@@ -45,7 +42,6 @@ function min(id) {
     }
 
     $('#'+id+'-qty').text(parseInt(current_val) - 1);
-
 
     $('.qty-total-food').text("Total : "+total_qty_food+" makanan, "+total_qty_drink+" minuman");
     $('.price-total-food').text("Harga : "+total_price);
@@ -112,10 +108,10 @@ function initializeApp() {
     // displayLiffData();
     // displayIsInClientInfo();
     registerButtonHandlers();
-
+    console.log('is loggedIn '+liff.isLoggedIn());
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
-        document.getElementById('liffLoginButton').disabled = true;
+        // document.getElementById('liffLoginButton').disabled = true;
         document.getElementById("is-login").classList.add('hidden');
         document.getElementById("is-not-login").classList.remove('hidden');
         liff.getProfile().then(function(profile) {
