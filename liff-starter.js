@@ -138,61 +138,10 @@ function registerButtonHandlers() {
             if (!liff.isInClient()) {
                 sendAlertIfNotInClient();
             } else {
-                liff.sendMessages([
-                    {
-                        "type": "bubble",
-                        "body": {
-                          "type": "box",
-                          "layout": "horizontal",
-                          "contents": [
-                            {
-                              "type": "text",
-                              "text": "hello, world",
-                              "contents": [
-                                {
-                                  "type": "span",
-                                  "text": "Hello, world!",
-                                  "decoration": "line-through"
-                                },
-                                {
-                                  "type": "span",
-                                  "text": "\nClosing",
-                                  "color": "#ff0000",
-                                  "size": "sm",
-                                  "weight": "bold",
-                                  "decoration": "none"
-                                },
-                                {
-                                  "type": "span",
-                                  "text": " "
-                                },
-                                {
-                                  "type": "span",
-                                  "text": "the",
-                                  "size": "lg",
-                                  "color": "#00ff00",
-                                  "decoration": "underline",
-                                  "weight": "bold"
-                                },
-                                {
-                                  "type": "span",
-                                  "text": " "
-                                },
-                                {
-                                  "type": "span",
-                                  "text": "distance",
-                                  "color": "#0000ff",
-                                  "weight": "bold",
-                                  "size": "xxl"
-                                }
-                              ],
-                              "wrap": true,
-                              "align": "center"
-                            }
-                          ]
-                        }
-                    }
-                ]).then(function() {
+                liff.sendMessages([{
+                    'type': 'text',
+                    'text': "Hi _"+ $('#user-login-fullname').text() +"_, \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n** "+total_qty_food+ " Makanan*\n** "+total_qty_drink+" Minuman*\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
+                }]).then(function() {
                     // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
                     if (!liff.isInClient()) {
                         sendAlertIfNotInClient();
