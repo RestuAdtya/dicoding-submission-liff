@@ -118,10 +118,6 @@
             </div>
         </div>
 
-
-        <!--Konten LIFF v2-->
-
-        <!-- LIFF ID ERROR -->
         <div id="liffIdErrorMessage" class="hidden pd-t-25-f">
             <p>You have not assigned any value for LIFF ID.</p>
             <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your
@@ -140,18 +136,18 @@
                     href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
                     app</a>.</p>
         </div>
-        <!-- LIFF INIT ERROR -->
+        
         <div id="liffInitErrorMessage" class="hidden">
             <p>Something went wrong with LIFF initialization.</p>
             <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.
         </div>
-        <!-- NODE.JS LIFF ID ERROR -->
+        
         <div id="nodeLiffIdErrorMessage" class="hidden">
             <p>Unable to receive the LIFF ID as an environment variable.</p>
         </div>
     </div>
 </body>
-<!-- Integrasi LIFF SDK dan konfigurasi aplikasi catatan sederhana -->
+
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script src="catatan-config.js"></script>
 <script src="liff-starter.js"></script>
