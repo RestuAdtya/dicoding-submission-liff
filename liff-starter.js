@@ -139,25 +139,28 @@ function registerButtonHandlers() {
                 sendAlertIfNotInClient();
             } else {
                 liff.sendMessages([{
-                    'type': 'text',
-                    'text': "hello",
-                    "contents": [
-                        {
-                          "type": "span",
-                          "text": "Hi "+ $('#user-login-fullname').text() +", \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n",
-                        },
-                        {
-                          "type": "span",
-                          "text": "* "+total_qty_food+ " Makanan \n*"+total_qty_drink+ " Minuman\n\n",
-                          "weight": "bold",
-                          "decoration": "none"
-                        },
-                        {
-                          "type": "span",
-                          "text": "Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
-                        }
-                      ],
-                    "wrap": true
+                    "type": "bubble",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "span",
+                                "text": "Hi "+ $('#user-login-fullname').text() +", \n\nTerima kasih telah memesan makanan, berikut adalah review pesanananya: \n\n",
+                            },
+                            {
+                                "type": "span",
+                                "text": "* "+total_qty_food+ " Makanan \n*"+total_qty_drink+ " Minuman\n\n",
+                                "weight": "bold",
+                                "decoration": "none"
+                            },
+                            {
+                                "type": "span",
+                                "text": "Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.\n\nMohon ditunggu yaa"
+                            }
+                        ],
+                        'wrap':true
+                    }
                 }]).then(function() {
                     // window.alert('Ini adalah pesan dari fitur Jajan Kuy');
                     if (!liff.isInClient()) {
